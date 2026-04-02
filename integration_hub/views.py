@@ -23,9 +23,7 @@ from payment_app.models import Payment
 from payment_app.serializers import PaymentSummarySerializer
 
 
-# ---------------------------------------------------------------------------
-# Helper: Message Router
-# ---------------------------------------------------------------------------
+
 
 def _route_to_student(student_id: str):
     """
@@ -74,9 +72,7 @@ def _route_to_payment(student_id: str):
     }
 
 
-# ---------------------------------------------------------------------------
-# Hub Views
-# ---------------------------------------------------------------------------
+
 
 class StudentSummaryView(APIView):
     """
@@ -103,18 +99,14 @@ class StudentSummaryView(APIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        # ── Step 1: Route to Student Spoke ──────────────────────────────────
         student, err = _route_to_student(student_id)
         if err:
             return Response({'error': err}, status=status.HTTP_404_NOT_FOUND)
 
-        # ── Step 2: Route to Library Spoke ──────────────────────────────────
         library_data = _route_to_library(student_id)
 
-        # ── Step 3: Route to Payment Spoke ──────────────────────────────────
         payment_data = _route_to_payment(student_id)
 
-        # ── Step 4: Data Transformation — build unified response ────────────
         unified_response = {
             'integration_pattern': 'Hub-and-Spoke | Request-Response | Data Transformation',
             'hub': 'University Integration Platform',
@@ -207,9 +199,6 @@ class HubHealthView(APIView):
         })
 
 
-# ---------------------------------------------------------------------------
-# Helper: Compute Clearance
-# ---------------------------------------------------------------------------
 
 def _compute_clearance(library_data: dict, payment_data: dict) -> dict:
     """
