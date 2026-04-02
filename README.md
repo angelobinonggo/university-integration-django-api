@@ -88,7 +88,7 @@ python manage.py runserver
 
 ## API Endpoints
 
-### 🔵 Spoke — Student App
+### Spoke — Student App
 | Method | Endpoint | Description |
 |---|---|---|
 | GET | `/api/students/` | List all students |
@@ -98,7 +98,7 @@ python manage.py runserver
 | DELETE | `/api/students/{id}/` | Delete student |
 | GET | `/api/students/by_student_id/?student_id=S001` | Lookup by student_id |
 
-### 🟢 Spoke — Library App
+### Spoke — Library App
 | Method | Endpoint | Description |
 |---|---|---|
 | GET | `/api/library/` | List all records |
@@ -106,7 +106,7 @@ python manage.py runserver
 | GET | `/api/library/{id}/` | Get record |
 | GET | `/api/library/by_student_id/?student_id=S001` | Lookup by student_id |
 
-### 🟡 Spoke — Payment App
+### Spoke — Payment App
 | Method | Endpoint | Description |
 |---|---|---|
 | GET | `/api/payments/` | List all payments |
@@ -114,7 +114,7 @@ python manage.py runserver
 | GET | `/api/payments/{id}/` | Get payment |
 | GET | `/api/payments/by_student_id/?student_id=S001` | List by student_id |
 
-### 🔴 Hub — Integration Hub
+### Hub — Integration Hub
 | Method | Endpoint | Description |
 |---|---|---|
 | GET | `/api/hub/health/` | System health — all spoke status |
@@ -164,10 +164,10 @@ Run `python manage.py seed_data` to load:
 
 | Student ID | Name | Library | Payments |
 |---|---|---|---|
-| S001 | Juan dela Cruz | CLEAR | ✅ ₱15,500 paid |
-| S002 | Maria Santos | HOLD (₱150 fine) | ✅ ₱15,000 paid |
-| S003 | Pedro Reyes | CLEAR | ⏳ ₱10,000 pending |
-| S004 | Ana Garcia | No record | ❌ No payment |
+| S001 | Juan dela Cruz | CLEAR | ₱15,500 paid |
+| S002 | Maria Santos | HOLD (₱150 fine) | ₱15,000 paid |
+| S003 | Pedro Reyes | CLEAR | ₱10,000 pending |
+| S004 | Ana Garcia | No record | No payment |
 
 ---
 
